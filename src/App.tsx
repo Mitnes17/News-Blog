@@ -1,58 +1,41 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 
-import './App.css';
+import { usePosts } from './hooks/usePosts';
 import { NewPostForm } from './components/NewPostForm';
 import { NewsFilter } from './components/NewsFilter';
 import { NewsList } from './components/NewsList';
 import { ModalCreate } from './components/ModalCreate';
 import { Button } from './components/UI/Button';
+import './styles/App.css';
+import axios from 'axios';
 
 function App() {
-  const [posts, setPosts] = useState([
-    { id: 1, title: '1Title', content: '2News body' },
-    { id: 2, title: '2Title', content: '3News body' },
-    { id: 3, title: '3Title', content: '1News body' },
-  ]);
+  const [posts, setPosts] = useState<{ id: number; title: string; body: string }[]>([]);
 
-  interface posts {
-    title: string;
-    content: string;
-  }
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+      setPosts(response.data.slice(0, 17));
+    };
+    fetchPosts();
+  }, []);
 
-  const [post, setPost] = useState({ title: '', content: '' });
+  const [post, setPost] = useState({ title: '', body: '' });
 
   const addNewPost = (e: any) => {
     e.preventDefault();
-    setPosts([...posts, { ...post, id: Date.now() }]);
-    setPost({ title: '', content: '' });
+    setPosts([...posts, { ...post, id: posts[0].id - 1 }]);
+    setPost({ title: '', body: '' });
     setIsActiveModal(false);
   };
 
   const deletePost = (post: any) => {
-    setPosts(posts.filter((p) => p.id !== post.id));
+    setPosts(posts.filter((p: any) => p.id !== post.id));
   };
 
   const [filter, setFilter] = useState({ select: '', search: '' });
 
-  const sortedPosts = useMemo(
-    () =>
-      filter.select
-        ? [...posts].sort((a, b) =>
-            a[filter.select as keyof posts].localeCompare(b[filter.select as keyof posts])
-          )
-        : posts,
-    [filter.select, posts]
-  );
-
-  const sortedAndFilteredPosts = useMemo(
-    () =>
-      sortedPosts.filter(
-        (post) =>
-          post.title.toLowerCase().includes(filter.search) ||
-          post.content.toLowerCase().includes(filter.search)
-      ),
-    [filter.search, sortedPosts]
-  );
+  const filteredPosts = usePosts(posts, filter.select, filter.search);
 
   const [isActiveModal, setIsActiveModal] = useState(false);
 
@@ -80,7 +63,7 @@ function App() {
         {...{ setFilter }}
       />
       <NewsList
-        posts={sortedAndFilteredPosts}
+        posts={filteredPosts}
         {...{ deletePost }}
       />
     </div>

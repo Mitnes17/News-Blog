@@ -15,10 +15,10 @@ export const NewPostForm: FC<Props> = ({ post, setPost, addNewPost }) => {
         onChange={(e: any) => setPost({ ...post, title: e.target.value })}
       />
       <Input
-        value={post.content}
+        value={post.body}
         type='text'
         placeholder='Post content'
-        onChange={(e: any) => setPost({ ...post, content: e.target.value })}
+        onChange={(e: any) => setPost({ ...post, body: e.target.value })}
       />
       <Button
         color='#6c74cc'

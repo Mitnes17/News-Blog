@@ -3,17 +3,17 @@ import { Button } from '../UI/Button';
 import { Props } from './NewsItem';
 import * as S from './styled';
 
-export const NewsItem: FC<Props> = ({ news: { title, content }, news, index, onClick }) => {
+export const NewsItem: FC<Props> = ({ news: { title, body }, news, index, onClick }) => {
   return (
     <S.Article>
       <S.NewsItem>
         <S.Title>
           {index + 1}. {title}
         </S.Title>
-        <S.Content>{content}</S.Content>
+        <S.Content>{body}</S.Content>
       </S.NewsItem>
       <Button
-        color='#fd4f5d'
+        color='#f55865'
         onClick={() => onClick(news)}
         children='Delete'
       />

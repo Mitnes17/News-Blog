@@ -12,7 +12,7 @@ export const NewsFilter: FC<Props> = ({ filter, setFilter }) => {
         defaultValue='Sort By'
         options={[
           { value: 'title', name: 'Title' },
-          { value: 'content', name: 'Content' },
+          { value: 'body', name: 'Content' },
         ]}
       />
       <Input

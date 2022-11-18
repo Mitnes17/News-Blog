@@ -1,6 +1,7 @@
 export type NewsType = {
   title: string;
-  content: string;
+  body: string;
+  id: number;
 };
 
 export type Props = {

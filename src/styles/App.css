@@ -1,0 +1,23 @@
+.post-enter {
+  transform: scale(0);
+}
+
+.post-enter-active {
+  transform: scale(1);
+  transition: 500ms ease-in;
+}
+
+.post-exit {
+  transform: scale(1);
+}
+
+.post-exit-active {
+  transform: scale(0);
+  transition: 500ms ease-in;
+}
+
+.postsList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
