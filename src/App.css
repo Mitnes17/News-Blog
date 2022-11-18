@@ -1,0 +1,7 @@
+.wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  column-gap: 30px;
+}

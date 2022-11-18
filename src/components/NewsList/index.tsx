@@ -9,13 +9,17 @@ export const NewsList: FC<Props> = ({ posts, deletePost }) => {
     <S.NewsList>
       <S.H1>Hot news</S.H1>
 
-      {posts.map((post: NewsType, index: number) => (
-        <NewsItem
-          {...{ index }}
-          news={post}
-          onClick={deletePost}
-        />
-      ))}
+      {posts.length === 0 ? (
+        <h2>There is no news!</h2>
+      ) : (
+        posts.map((post: NewsType, index: number) => (
+          <NewsItem
+            {...{ index }}
+            news={post}
+            onClick={deletePost}
+          />
+        ))
+      )}
     </S.NewsList>
   );
 };
