@@ -13,10 +13,10 @@ export const NewsItem: FC<Props> = ({ news: { title, content }, news, index, onC
         <S.Content>{content}</S.Content>
       </S.NewsItem>
       <Button
+        color='#fd4f5d'
         onClick={() => onClick(news)}
         children='Delete'
       />
-      {/* <S.Button onClick={() => onClick(news)}>Delete</S.Button> */}
     </S.Article>
   );
 };

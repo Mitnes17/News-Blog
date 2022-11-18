@@ -21,6 +21,7 @@ export const NewPostForm: FC<Props> = ({ post, setPost, addNewPost }) => {
         onChange={(e: any) => setPost({ ...post, content: e.target.value })}
       />
       <Button
+        color='#6c74cc'
         children='Add new post'
         onClick={(e: any) => addNewPost(e)}
       />

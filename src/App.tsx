@@ -2,9 +2,10 @@ import { useState, useMemo } from 'react';
 
 import './App.css';
 import { NewPostForm } from './components/NewPostForm';
+import { NewsFilter } from './components/NewsFilter';
 import { NewsList } from './components/NewsList';
-import { Input } from './components/UI/Input';
-import { Select } from './components/UI/Select';
+import { ModalCreate } from './components/ModalCreate';
+import { Button } from './components/UI/Button';
 
 function App() {
   const [posts, setPosts] = useState([
@@ -24,64 +25,61 @@ function App() {
     e.preventDefault();
     setPosts([...posts, { ...post, id: Date.now() }]);
     setPost({ title: '', content: '' });
+    setIsActiveModal(false);
   };
 
   const deletePost = (post: any) => {
     setPosts(posts.filter((p) => p.id !== post.id));
   };
 
-  const [selectSort, setSelectSort] = useState('');
+  const [filter, setFilter] = useState({ select: '', search: '' });
 
-  const sortedPosts = useMemo(() => {
-    console.log('work');
-    return selectSort
-      ? [...posts].sort((a, b) =>
-          a[selectSort as keyof posts].localeCompare(b[selectSort as keyof posts])
-        )
-      : posts;
-  }, [posts, selectSort]);
-
-  const onChangeSort = (sort: string) => {
-    setSelectSort(sort);
-  };
-
-  const [search, setSearch] = useState('');
+  const sortedPosts = useMemo(
+    () =>
+      filter.select
+        ? [...posts].sort((a, b) =>
+            a[filter.select as keyof posts].localeCompare(b[filter.select as keyof posts])
+          )
+        : posts,
+    [filter.select, posts]
+  );
 
   const sortedAndFilteredPosts = useMemo(
     () =>
       sortedPosts.filter(
         (post) =>
-          post.title.toLowerCase().includes(search) || post.content.toLowerCase().includes(search)
+          post.title.toLowerCase().includes(filter.search) ||
+          post.content.toLowerCase().includes(filter.search)
       ),
-    [search, sortedPosts]
+    [filter.search, sortedPosts]
   );
+
+  const [isActiveModal, setIsActiveModal] = useState(false);
+
+  const onClickIsActiveModal = () => setIsActiveModal(true);
 
   return (
     <div className='App'>
-      <NewPostForm
-        {...{ post }}
-        {...{ setPost }}
-        {...{ addNewPost }}
+      <Button
+        color='#6c74cc'
+        children='Create new post'
+        onClick={onClickIsActiveModal}
       />
-      <hr style={{ borderTop: '1px solid #805a3b' }} />
-      <div className='wrap'>
-        <Select
-          onChange={onChangeSort}
-          defaultValue='Sort By'
-          options={[
-            { value: 'title', name: 'Title' },
-            { value: 'content', name: 'Content' },
-          ]}
+      <ModalCreate
+        isActive={isActiveModal}
+        setIsActive={setIsActiveModal}
+      >
+        <NewPostForm
+          {...{ post }}
+          {...{ setPost }}
+          {...{ addNewPost }}
         />
-        <Input
-          type='text'
-          placeholder='Search...'
-          onChange={(e: any) => setSearch(e.target.value)}
-          value={search}
-        />
-      </div>
+      </ModalCreate>
+      <NewsFilter
+        {...{ filter }}
+        {...{ setFilter }}
+      />
       <NewsList
-        {...{ posts }}
         posts={sortedAndFilteredPosts}
         {...{ deletePost }}
       />
