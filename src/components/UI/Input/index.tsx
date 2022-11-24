@@ -1,8 +1,3 @@
-// import { FC, InputHTMLAttributes } from 'react';
-// import { Props } from './Input.d';
-
-// import * as S from './styled';
-
 import styled from 'styled-components';
 
 export const Input = styled.input`

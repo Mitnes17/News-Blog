@@ -1,5 +1,4 @@
 import { useState, useEffect, SyntheticEvent } from 'react';
-import axios from 'axios';
 
 import { usePosts } from './hooks/usePosts';
 import { NewPostForm } from './components/NewPostForm';
@@ -9,6 +8,8 @@ import { ModalCreate } from './components/ModalCreate';
 import { Button } from './components/UI/Button';
 import { SELECT } from './hooks/usePosts';
 import './styles/App.css';
+import PostService from './API/PostService';
+import { useFetching } from './hooks/useFetching';
 
 export type Post = {
   id: number;
@@ -24,6 +25,10 @@ function App() {
   const [filter, setFilter] = useState({ select: SELECT.title, search: '' });
   const filteredPosts = usePosts(posts, filter.select, filter.search);
   const [isActiveModal, setIsActiveModal] = useState(false);
+  const [fetchPosts, isLoading, error] = useFetching(async () => {
+    const response = await PostService();
+    setPosts(response.slice(0, 17));
+  });
 
   const addNewPost = (e: SyntheticEvent) => {
     e.preventDefault();
@@ -37,10 +42,6 @@ function App() {
   };
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
-      setPosts(response.data.slice(0, 17));
-    };
     fetchPosts();
   }, []);
 
@@ -66,6 +67,7 @@ function App() {
         {...{ setFilter }}
       />
       <NewsList
+        isLoading={isLoading}
         posts={filteredPosts}
         {...{ deletePost }}
       />

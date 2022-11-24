@@ -1,5 +1,7 @@
 import { FC } from 'react';
+
 import { Props, OptionType } from './Select.d';
+
 import * as S from './styled';
 
 //spizditi props
