@@ -8,5 +8,5 @@ export const Button = styled.button<StyleProps>`
   color: #fef2e4;
   font-weight: bold;
   cursor: pointer;
-  background-color: ${({ color }) => (color ? color : 'white')};
+  background-color: ${({ color }) => color || 'white'};
 `;

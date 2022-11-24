@@ -1,18 +1,21 @@
 import { useMemo } from 'react';
+import { Post } from '../App';
 
-export const useSort = (posts: any, select: string) =>
-  useMemo(
-    () => (select ? [...posts].sort((a, b) => a[select].localeCompare(b[select])) : posts),
-    [select, posts]
-  );
+export enum SELECT {
+  title = 'title',
+  body = 'body',
+}
 
-export const usePosts = (posts: any, select: string, search: string) => {
+export const useSort = (posts: Post[], select: SELECT) =>
+  useMemo(() => [...posts].sort((a, b) => a[select].localeCompare(b[select])), [select, posts]);
+
+export const usePosts = (posts: Post[], select: SELECT, search: string) => {
   const sortedPosts = useSort(posts, select);
 
   return useMemo(
     () =>
       sortedPosts.filter(
-        (post: any) =>
+        (post) =>
           post.title.toLowerCase().includes(search) || post.body.toLowerCase().includes(search)
       ),
     [search, sortedPosts]

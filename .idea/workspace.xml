@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cc46585a-9b50-403e-9177-91d0278c14ca" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ModalCreate/ModalCreate.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModalCreate/ModalCreate.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ModalCreate/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModalCreate/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ModalCreate/styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModalCreate/styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewPostForm/NewPostForm.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPostForm/NewPostForm.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewPostForm/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPostForm/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewPostForm/styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewPostForm/styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewsFilter/NewsFilter.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewsFilter/NewsFilter.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewsFilter/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewsFilter/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewsFilter/styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewsFilter/styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewsItem/NewsItem.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewsItem/NewsItem.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewsItem/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewsItem/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewsItem/styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewsItem/styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewsList/NewsList.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewsList/NewsList.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewsList/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewsList/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NewsList/styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NewsList/styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Button/Button.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Button/Button.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Button/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Button/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Button/styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Button/styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Input/Input.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Input/Input.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Input/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Input/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Input/styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Input/styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Select/Select.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Select/Select.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Select/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Select/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UI/Select/styled.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UI/Select/styled.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/usePosts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/usePosts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Hs7CgWMaQ7CALq3YAx2BWOXGqG" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "/media/victor/Victor/IT/React/news-blog/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cc46585a-9b50-403e-9177-91d0278c14ca" name="Changes" comment="" />
+      <created>1669061818555</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669061818555</updated>
+      <workItem from="1669061831251" duration="668000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

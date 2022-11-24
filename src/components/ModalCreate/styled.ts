@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import { StyleProps } from './ModalCreate';
+import styled, { css } from 'styled-components';
 
 export const CreateForm = styled.div`
   min-width: 300px;
@@ -11,7 +12,20 @@ export const CreateForm = styled.div`
   transition: 0.3s;
 `;
 
-export const ModalCreate = styled.div`
+const isActive = css`
+  opacity: 1;
+  transition: 0.3s;
+  justify-content: center;
+  align-items: center;
+  pointer-events: visible;
+
+  ${CreateForm} {
+    transform: scale(1);
+    transition: 0.3s;
+  }
+`;
+
+export const ModalCreate = styled.div<StyleProps>`
   display: flex;
   position: fixed;
   top: 0;
@@ -25,16 +39,18 @@ export const ModalCreate = styled.div`
   pointer-events: none;
   background-color: rgba(0, 0, 0, 0.5);
 
-  &.isActive {
-    opacity: 1;
-    transition: 0.3s;
-    justify-content: center;
-    align-items: center;
-    pointer-events: visible;
+  ${({ isActive }) =>
+    isActive &&
+    `
+            opacity: 1;
+            transition: 0.3s;
+            justify-content: center;
+            align-items: center;
+            pointer-events: visible;
 
-    ${CreateForm} {
-      transform: scale(1);
-      transition: 0.3s;
-    }
-  }
+            ${CreateForm} {
+              transform: scale(1);
+              transition: 0.3s;
+            }
+          `}
 `;

@@ -1,6 +1,6 @@
 export type Props = {
   placeholder: string;
-  onChange: any;
+  onChange: (e: string) => void;
   type: string;
   value: string;
 };

@@ -1,9 +1,11 @@
+import { SELECT } from '../../hooks/usePosts';
+
 export interface FilterType {
   search: string;
-  select: string;
+  select: SELECT;
 }
 
 export type Props = {
   filter: FilterType;
-  setFilter: any;
+  setFilter: (e: { search: string; select: SELECT }) => void;
 };

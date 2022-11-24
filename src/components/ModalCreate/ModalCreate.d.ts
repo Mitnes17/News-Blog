@@ -1,5 +1,8 @@
-export type Props = {
-  children: React.ReactNode;
+export type StyleProps = {
   isActive: boolean;
-  setIsActive: any;
+};
+
+export type Props = StyleProps & {
+  children: React.ReactNode;
+  setIsActive: (e: boolean) => void;
 };

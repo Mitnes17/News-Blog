@@ -6,5 +6,5 @@ export type OptionType = {
 export type Props = {
   defaultValue: string;
   options: Array;
-  onChange: any;
+  onChange: (e: string) => void;
 };

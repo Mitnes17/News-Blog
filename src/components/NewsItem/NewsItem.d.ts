@@ -7,5 +7,5 @@ export type NewsType = {
 export type Props = {
   news: NewsType;
   index: number;
-  onClick: any;
+  onClick: (e: NewsType) => void;
 };

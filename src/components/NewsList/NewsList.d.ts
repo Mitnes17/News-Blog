@@ -1,4 +1,5 @@
+import { Post } from './../../App';
 export type Props = {
   posts: Array;
-  deletePost: any;
+  deletePost: (e: Post) => void;
 };
