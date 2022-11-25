@@ -52,7 +52,7 @@ function App() {
 
   const deletePost = (post: Post) => {
     setPosts((prev) => prev.filter((p) => p.id !== post.id));
-  };
+  }; //
 
   useEffect(() => {
     fetchPosts();
