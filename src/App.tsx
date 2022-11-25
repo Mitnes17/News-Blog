@@ -1,4 +1,4 @@
-import { useState, useEffect, SyntheticEvent } from 'react';
+import { useState, useEffect, SyntheticEvent, useMemo } from 'react';
 
 import { usePosts } from './hooks/usePosts';
 import { NewPostForm } from './components/NewPostForm';
@@ -7,9 +7,12 @@ import { NewsList } from './components/NewsList';
 import { ModalCreate } from './components/ModalCreate';
 import { Button } from './components/UI/Button';
 import { SELECT } from './hooks/usePosts';
-import './styles/App.css';
-import PostService from './API/PostService';
 import { useFetching } from './hooks/useFetching';
+import PostService from './API/PostService';
+import { getPageCount } from './utils/pages';
+import { Pagination } from './components/UI/Pagination';
+
+import './styles/App.css';
 
 export type Post = {
   id: number;
@@ -25,10 +28,20 @@ function App() {
   const [filter, setFilter] = useState({ select: SELECT.title, search: '' });
   const filteredPosts = usePosts(posts, filter.select, filter.search);
   const [isActiveModal, setIsActiveModal] = useState(false);
+  const [limit, setLimit] = useState(10);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [totalPageCount, setTotalPageCount] = useState(0);
   const [fetchPosts, isLoading, error] = useFetching(async () => {
-    const response = await PostService();
-    setPosts(response.slice(0, 17));
+    const response = await PostService(currentPage, limit);
+    const totalCount = response.headers['x-total-count']!;
+    setTotalPageCount(getPageCount(+totalCount, limit));
+    setPosts(response.data);
   });
+
+  const pages = useMemo(
+    () => Array.from(new Array(totalPageCount).fill(0), (_, i) => i + 1),
+    [totalPageCount]
+  );
 
   const addNewPost = (e: SyntheticEvent) => {
     e.preventDefault();
@@ -43,7 +56,7 @@ function App() {
 
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [currentPage]);
 
   return (
     <div className='App'>
@@ -67,9 +80,15 @@ function App() {
         {...{ setFilter }}
       />
       <NewsList
+        error={error}
         isLoading={isLoading}
         posts={filteredPosts}
         {...{ deletePost }}
+      />
+      <Pagination
+        list={pages}
+        current={currentPage}
+        onClick={(page: number) => setCurrentPage(page)}
       />
     </div>
   );

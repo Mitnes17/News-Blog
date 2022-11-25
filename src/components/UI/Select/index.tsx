@@ -14,8 +14,13 @@ export const Select: FC<Props> = ({ defaultValue, options, onChange }) => {
       >
         {defaultValue}
       </option>
-      {options.map((option: OptionType) => (
-        <option value={option.value}>{option.name}</option>
+      {options.map((option: OptionType, index: number) => (
+        <option
+          value={option.value}
+          key={index}
+        >
+          {option.name}
+        </option>
       ))}
     </S.Select>
   );

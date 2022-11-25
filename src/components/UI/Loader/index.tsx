@@ -17,14 +17,14 @@ export const Loader = styled.div`
     height: 40px;
     position: absolute;
     border-radius: 50%;
-    background: white;
+    background: #f55865;
     animation: spin 1s linear infinite;
     transform-origin: 0px 100%;
   }
 
   &:before {
     transform-origin: 0 50%;
-    background: teal;
+    background: #6c74cc;
   }
 
   @keyframes spin {

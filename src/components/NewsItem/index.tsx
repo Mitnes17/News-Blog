@@ -3,12 +3,12 @@ import { Button } from '../UI/Button';
 import { Props } from './NewsItem';
 import * as S from './styled';
 
-export const NewsItem: FC<Props> = ({ news: { title, body }, news, index, onClick }) => {
+export const NewsItem: FC<Props> = ({ news: { title, body, id }, news, index, onClick }) => {
   return (
     <S.Article>
       <S.NewsItem>
         <S.Title>
-          {index + 1}. {title}
+          {id + 1}. {title}
         </S.Title>
         <S.Content>{body}</S.Content>
       </S.NewsItem>

@@ -8,11 +8,13 @@ import { Loader } from '../UI/Loader';
 
 import * as S from './styled';
 
-export const NewsList: FC<Props> = ({ posts, deletePost, isLoading }) => {
+export const NewsList: FC<Props> = ({ posts, deletePost, isLoading, error }) => {
   return (
     <S.NewsList>
       <S.H1>Hot news</S.H1>
-      {isLoading ? (
+      {error ? (
+        <h1>Download error, please, try again</h1>
+      ) : isLoading ? (
         <Loader />
       ) : posts.length === 0 ? (
         <h2>There is no news!</h2>
