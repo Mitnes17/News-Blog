@@ -1,8 +1,10 @@
 import { ChangeEvent, FC } from 'react';
+
 import { Select } from '../UI/Select';
 import { Input } from '../UI/Input';
 import { Props } from './NewsFilter.d';
 import { SELECT } from '../../hooks/usePosts';
+
 import * as S from './styled';
 
 export const NewsFilter: FC<Props> = ({ filter, setFilter }) => {

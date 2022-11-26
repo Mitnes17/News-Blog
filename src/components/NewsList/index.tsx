@@ -3,8 +3,8 @@ import { FC } from 'react';
 import { NewsItem } from '../NewsItem';
 import { NewsType } from '../NewsItem/NewsItem';
 import { Props } from './NewsList';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Loader } from '../UI/Loader';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import * as S from './styled';
 

@@ -24,7 +24,7 @@ export const Loader = styled.div`
 
   &:before {
     transform-origin: 0 50%;
-    background: #6c74cc;
+    background: teal;
   }
 
   @keyframes spin {

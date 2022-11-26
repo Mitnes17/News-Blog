@@ -38,3 +38,8 @@ export const Button = styled.button`
   cursor: pointer;
   color: #fef2e4;
 `;
+
+export const Buttons = styled.div`
+  display: flex;
+  column-gap: 20px;
+`;

@@ -1,5 +1,7 @@
 import { FC } from 'react';
+
 import { Props } from './ModalCreate.d';
+
 import * as S from './styled';
 
 export const ModalCreate: FC<Props> = ({ children, isActive, setIsActive }) => {
