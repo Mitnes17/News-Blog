@@ -1,8 +1,9 @@
 import axios from 'axios';
 
-export default class PostService {
-  static async getAll(page: number, limit: number) {
+const PostService = {
+  async getAll(page: number, limit: number) {
     const response = await axios.get('https://jsonplaceholder.typicode.com/posts', {
+      //http to const
       params: {
         _limit: limit,
         _page: page,
@@ -10,17 +11,19 @@ export default class PostService {
     });
 
     return response;
-  }
+  },
 
-  static async getById(id: string) {
+  async getById(id: string) {
     const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`);
 
     return response;
-  }
+  },
 
-  static async getCommentsById(id: string) {
+  async getCommentsById(id: string) {
     const response = await axios.get(`https://jsonplaceholder.typicode.com/posts/${id}/comments`);
 
     return response;
-  }
-}
+  },
+};
+
+export default PostService;

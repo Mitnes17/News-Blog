@@ -10,15 +10,19 @@ type Props = {
 export const Pagination: FC<Props> = ({ list, current, onClick }) => {
   return (
     <S.Pagination>
-      {list.map((item) => (
-        <li
-          onClick={() => onClick(item)}
-          key={item}
-          className={item === current ? 'isActive' : ''}
-        >
-          {item}
-        </li>
-      ))}
+      {list.map(
+        (
+          item //styled for li
+        ) => (
+          <li
+            onClick={() => onClick(item)}
+            key={item}
+            className={item === current ? 'isActive' : ''}
+          >
+            {item}
+          </li>
+        )
+      )}
     </S.Pagination>
   );
 };

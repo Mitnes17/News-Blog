@@ -4,10 +4,17 @@ import { Post } from '../pages/Posts';
 export enum SELECT {
   title = 'title',
   body = 'body',
+  id = 'id',
 }
 
 export const useSort = (posts: Post[], select: SELECT) =>
-  useMemo(() => [...posts].sort((a, b) => a[select].localeCompare(b[select])), [select, posts]);
+  useMemo(
+    () =>
+      select === SELECT.title || select === SELECT.body
+        ? [...posts].sort((a, b) => a[select].localeCompare(b[select]))
+        : [...posts].sort((a, b) => +a.id - +b.id),
+    [select, posts]
+  );
 
 export const usePosts = (posts: Post[], select: SELECT, search: string) => {
   const sortedPosts = useSort(posts, select);

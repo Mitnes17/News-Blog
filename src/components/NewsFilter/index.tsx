@@ -16,6 +16,7 @@ export const NewsFilter: FC<Props> = ({ filter, setFilter }) => {
         }
         defaultValue='Sort By'
         options={[
+          { value: 'id', name: 'ID' },
           { value: 'title', name: 'Title' },
           { value: 'body', name: 'Content' },
         ]}

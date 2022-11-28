@@ -4,11 +4,11 @@ import { AuthContext } from '../../context';
 import { Button } from '../UI/Button';
 
 export const NavBar = () => {
-  const { isAuth, setIsAuth } = useContext(AuthContext);
+  const { setIsAuth } = useContext(AuthContext);
 
   const logout = () => {
-    setIsAuth && setIsAuth(false);
-    localStorage.removeItem('auth');
+    setIsAuth(false);
+    localStorage.removeItem('auth'); // key auth in const
   };
 
   return (

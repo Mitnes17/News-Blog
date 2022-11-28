@@ -4,11 +4,11 @@ import { Input } from '../components/UI/Input';
 import { AuthContext } from '../context';
 
 export const Login = () => {
-  const { isAuth, setIsAuth } = useContext(AuthContext);
+  const { setIsAuth } = useContext(AuthContext);
 
   const login = (e: SyntheticEvent) => {
     e.preventDefault();
-    setIsAuth && setIsAuth(true);
+    setIsAuth(true);
     localStorage.setItem('auth', 'true');
   };
 

@@ -15,15 +15,17 @@ type Comment = {
 };
 
 export const PostIDPage = () => {
-  const params = useParams();
+  const { id } = useParams<{ id: string }>();
   const [post, setPost] = useState<Post>();
   const [comments, setComments] = useState<Comment[]>([]);
-  const [fetchPost, isLoading, error] = useFetching(async () => {
-    const response = await PostService.getById(params.id!);
+
+  const [fetchPost, isLoading] = useFetching(async () => {
+    const response = await PostService.getById(id!);
     setPost(response.data);
   });
-  const [fetchComments, isCommentsLoading, commentsError] = useFetching(async () => {
-    const response = await PostService.getCommentsById(params.id!);
+
+  const [fetchComments, isCommentsLoading] = useFetching(async () => {
+    const response = await PostService.getCommentsById(id!);
     setComments(response.data);
   });
 
