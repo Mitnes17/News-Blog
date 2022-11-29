@@ -13,8 +13,8 @@ export const Loader = styled.div`
   &:after,
   &:before {
     content: '';
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     position: absolute;
     border-radius: 50%;
     background: #f55865;

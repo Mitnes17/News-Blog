@@ -19,6 +19,7 @@ export const Login = () => {
 
   return (
     <S.Form onSubmit={login}>
+      <h2>Good to see you!</h2>
       <Input placeholder='Login' />
       <Input
         placeholder='Password'
