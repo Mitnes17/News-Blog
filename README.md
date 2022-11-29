@@ -1,3 +1,32 @@
+# News blog application
+
+A news blog on react with many features.
+
+Posts come on axios request.
+
+The main features of the application:
+
+-single page application
+
+-search posts by title or body
+
+-filter posts by id, title or body
+
+-a modal window to create post
+
+-delete post
+
+-select posts count per page
+
+-additional information and comments about any post (dynamic navigation)
+
+-infinite scroll (dynamic pagination)
+
+-a simple authentification with useContext with session saved in local storage (privat and public routers)
+
+You can see it on vercel: https://news-blog-five.vercel.app/
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
