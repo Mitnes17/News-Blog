@@ -4,7 +4,6 @@ import { Props, OptionType } from './Select.d';
 
 import * as S from './styled';
 
-//spizditi props
 export const Select: FC<Props> = ({ defaultValue, options, onChange }) => {
   return (
     <S.Select onChange={(event) => onChange(event.target.value)}>

@@ -3,10 +3,6 @@ import styled from 'styled-components';
 export const Input = styled.input`
   width: 100%;
   padding: 15px;
-  border: 1px solid #805a3b;
-  border-radius: 15px;
+  border: 1px solid #5f5f5f;
+  border-radius: 7px;
 `;
-
-// export const Input: FC<InputHTMLAttributes<HTMLInputElement>> = (props) => {
-//   return <S.Input {...props} />;
-// };

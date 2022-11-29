@@ -1,5 +1,5 @@
-import { Login } from '../pages/Login';
-import { PostIDPage } from '../pages/PostIDPage';
+import { Login } from '../pages/Login/Login';
+import { PostIDPage } from '../pages/PostIdPage/PostIDPage';
 import { Posts } from '../pages/Posts';
 import { About } from './../pages/About';
 

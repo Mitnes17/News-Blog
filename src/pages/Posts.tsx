@@ -9,9 +9,9 @@ import { Button } from '../components/UI/Button';
 import { useFetching } from '../hooks/useFetching';
 import { SELECT, usePosts } from '../hooks/usePosts';
 import { getPageCount } from '../utils/pages';
+import { useObserver } from '../hooks/useObserver';
 
 import '../styles/App.css';
-import { useObserver } from '../hooks/useObserver';
 
 export type Post = {
   id: string;
@@ -29,20 +29,26 @@ export const Posts = () => {
   const [limit, setLimit] = useState(10);
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPageCount, setTotalPageCount] = useState(0);
-  const filteredPosts = usePosts(posts, filter.select, filter.search);
-  const lastElement = useRef<HTMLDivElement>(null);
+  const lastElement = useRef<HTMLDivElement | null>(null);
   const observer = useRef<IntersectionObserver | null>(null);
+
+  const filteredPosts = usePosts(posts, filter.select, filter.search);
 
   const getPosts = useCallback(async () => {
     const response = await PostService.getAll(currentPage, limit);
     const totalCount = response.headers['x-total-count']!;
     setTotalPageCount(getPageCount(+totalCount, limit));
     setPosts([...posts, ...response.data]);
-  }, [currentPage, limit]);
+  }, [currentPage, limit, posts]);
 
   const [fetchPosts, isLoading, error] = useFetching(getPosts);
 
-  useObserver(lastElement, () => setCurrentPage((prev) => prev + 1), isLoading, currentPage < 10);
+  useObserver(
+    lastElement,
+    () => setCurrentPage((prev) => prev + 1),
+    isLoading,
+    currentPage < totalPageCount
+  );
 
   const pages = useMemo(
     () => Array.from(new Array(totalPageCount).fill(0), (_, i) => i + 1),
@@ -62,12 +68,14 @@ export const Posts = () => {
 
   useEffect(() => {
     fetchPosts();
-  }, [currentPage]);
+  }, [currentPage, limit]);
+
+  console.log(currentPage);
 
   return (
     <div className='App'>
       <Button
-        color='#6c74cc'
+        color='#367588'
         children='Create new post'
         onClick={() => setIsActiveModal(true)}
       />
@@ -76,20 +84,21 @@ export const Posts = () => {
         setIsActive={setIsActiveModal}
       >
         <NewPostForm
-          {...{ post }}
-          {...{ setPost }}
-          {...{ addNewPost }}
+          post={post}
+          setPost={setPost}
+          addNewPost={addNewPost}
         />
       </ModalCreate>
       <NewsFilter
-        {...{ filter }}
-        {...{ setFilter }}
+        filter={filter}
+        setFilter={setFilter}
+        setLimit={setLimit}
       />
       <NewsList
         error={error}
         isLoading={isLoading}
         posts={filteredPosts}
-        {...{ deletePost }}
+        deletePost={deletePost}
       />
       <div ref={lastElement}></div>
     </div>

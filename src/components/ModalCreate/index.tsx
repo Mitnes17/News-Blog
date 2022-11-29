@@ -7,7 +7,7 @@ import * as S from './styled';
 export const ModalCreate: FC<Props> = ({ children, isActive, setIsActive }) => {
   return (
     <S.ModalCreate
-      {...{ isActive }}
+      isActive={isActive}
       onClick={() => setIsActive(false)}
     >
       <S.CreateForm onClick={(e) => e.stopPropagation()}>{children}</S.CreateForm>

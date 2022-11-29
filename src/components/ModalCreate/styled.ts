@@ -1,14 +1,14 @@
 import { StyleProps } from './ModalCreate';
+
 import styled from 'styled-components';
 
 export const CreateForm = styled.div`
-  min-width: 300px;
   width: 50%;
+  min-width: 300px;
   padding: 40px 40px 20px 40px;
   transform: scale(0);
-  border: 2px solid #805a3b;
-  border-radius: 15px;
-  background-color: #fef2e4;
+  background-color: #fffacd;
+  border-radius: 7px;
   transition: 0.3s;
 `;
 
@@ -30,10 +30,10 @@ export const ModalCreate = styled.div<StyleProps>`
     isActive &&
     `
             opacity: 1;
-            transition: 0.3s;
             justify-content: center;
             align-items: center;
             pointer-events: visible;
+            transition: 0.3s;
 
             ${CreateForm} {
               transform: scale(1);

@@ -24,7 +24,7 @@ export const NewPostForm: FC<Props> = ({ post, setPost, addNewPost }) => {
         }
       />
       <Button
-        color='#6c74cc'
+        color='#367588'
         children='Add new post'
         onClick={addNewPost}
       />

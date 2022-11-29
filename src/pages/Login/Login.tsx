@@ -1,7 +1,12 @@
 import { SyntheticEvent, useContext } from 'react';
-import { Button } from '../components/UI/Button';
-import { Input } from '../components/UI/Input';
-import { AuthContext } from '../context';
+
+import { Button } from '../../components/UI/Button';
+import { Input } from '../../components/UI/Input';
+import { AuthContext } from '../../context';
+
+import * as S from './styled';
+
+export const AUTH = 'auth';
 
 export const Login = () => {
   const { setIsAuth } = useContext(AuthContext);
@@ -9,17 +14,17 @@ export const Login = () => {
   const login = (e: SyntheticEvent) => {
     e.preventDefault();
     setIsAuth(true);
-    localStorage.setItem('auth', 'true');
+    localStorage.setItem(AUTH, 'true');
   };
 
   return (
-    <form onSubmit={login}>
+    <S.Form onSubmit={login}>
       <Input placeholder='Login' />
       <Input
         placeholder='Password'
         type='password'
       />
-      <Button color='teal'>Submit</Button>
-    </form>
+      <Button color='#367588'>Submit</Button>
+    </S.Form>
   );
 };

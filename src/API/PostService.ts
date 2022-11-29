@@ -3,7 +3,6 @@ import axios from 'axios';
 const PostService = {
   async getAll(page: number, limit: number) {
     const response = await axios.get('https://jsonplaceholder.typicode.com/posts', {
-      //http to const
       params: {
         _limit: limit,
         _page: page,

@@ -8,4 +8,5 @@ export interface FilterType {
 export type Props = {
   filter: FilterType;
   setFilter: (e: { search: string; select: SELECT }) => void;
+  setLimit: (e: number) => void;
 };

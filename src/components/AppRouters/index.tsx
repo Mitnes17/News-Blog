@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { Route, Routes } from 'react-router-dom';
+
 import { AuthContext } from '../../context';
 import { publicRoutes, privateRoutes } from '../../routes';
 import { Loader } from '../UI/Loader';

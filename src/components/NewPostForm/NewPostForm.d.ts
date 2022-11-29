@@ -1,4 +1,5 @@
 import { SyntheticEvent } from 'react';
+
 import { Post } from '../../App';
 
 export type Props = {

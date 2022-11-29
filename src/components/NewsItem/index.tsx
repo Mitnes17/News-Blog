@@ -6,20 +6,18 @@ import { Props } from './NewsItem';
 
 import * as S from './styled';
 
-export const NewsItem: FC<Props> = ({ news: { title, body, id }, news, index, onClick }) => {
+export const NewsItem: FC<Props> = ({ news: { title, body, id }, news, onClick }) => {
   const navigate = useNavigate();
 
   return (
     <S.Article>
       <S.NewsItem>
-        <S.Title>
-          {id}. {title}
-        </S.Title>
+        <S.Title>{title}</S.Title>
         <S.Content>{body}</S.Content>
       </S.NewsItem>
       <S.Buttons>
         <Button
-          color='teal'
+          color='#367588'
           onClick={() => navigate(`/posts/${id}`)}
           children='Open'
         />
