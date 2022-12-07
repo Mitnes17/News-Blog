@@ -26,6 +26,7 @@ export const NavBar = () => {
         <S.Menu>
           <S.MenuLink to='/about'>About</S.MenuLink>
           <S.MenuLink to='/posts'>Posts</S.MenuLink>
+          <S.MenuLink to='/bookmarks'>Bookmarks</S.MenuLink>
         </S.Menu>
         <Button
           color='#dd4f5b'

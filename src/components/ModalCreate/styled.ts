@@ -25,6 +25,7 @@ export const ModalCreate = styled.div<StyleProps>`
   transition: 0.3s;
   pointer-events: none;
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
 
   ${({ isActive }) =>
     isActive &&

@@ -1,7 +1,7 @@
 export type NewsType = {
   title: string;
   body: string;
-  id: number;
+  id: string;
 };
 
 export type Props = {

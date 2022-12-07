@@ -38,8 +38,8 @@ export const Posts = () => {
     const response = await PostService.getAll(currentPage, limit);
     const totalCount = response.headers['x-total-count']!;
     setTotalPageCount(getPageCount(+totalCount, limit));
-    setPosts([...posts, ...response.data]);
-  }, [currentPage, limit, posts]);
+    setPosts((prev) => [...prev, ...response.data]);
+  }, [currentPage, limit]);
 
   const [fetchPosts, isLoading, error] = useFetching(getPosts);
 
@@ -70,8 +70,6 @@ export const Posts = () => {
     fetchPosts();
   }, [currentPage, limit]);
 
-  console.log(currentPage);
-
   return (
     <div className='App'>
       <Button
@@ -95,6 +93,7 @@ export const Posts = () => {
         setLimit={setLimit}
       />
       <NewsList
+        title='Hot news'
         error={error}
         isLoading={isLoading}
         posts={filteredPosts}

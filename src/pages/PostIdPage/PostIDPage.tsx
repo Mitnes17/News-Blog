@@ -59,7 +59,7 @@ export const PostIDPage = () => {
         ) : (
           comments &&
           comments.map((comment) => (
-            <S.Comment>
+            <S.Comment key={comment.id}>
               <h3>{comment.email}</h3>
               <p>{comment.body}</p>
             </S.Comment>

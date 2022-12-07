@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
+import { Provider } from 'react-redux';
+
 import { AppRoutes } from './components/AppRouters';
 import { NavBar } from './components/NavBar';
 import { AuthContext } from './context';
 import { AUTH } from './pages/Login/Login';
+import { store } from './store';
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -15,8 +18,10 @@ function App() {
 
   return (
     <AuthContext.Provider value={{ isAuth, setIsAuth, isLoading }}>
-      <NavBar />
-      <AppRoutes />
+      <Provider store={store}>
+        <NavBar />
+        <AppRoutes />
+      </Provider>
     </AuthContext.Provider>
   );
 }
